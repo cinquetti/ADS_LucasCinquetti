@@ -1,5 +1,7 @@
 package br.inatel.labs.labads.padraosoa.model.service;
 
+import java.util.Optional;
+import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,5 +30,30 @@ public class BookService {
 		bookList.add(b2);
 		bookList.add(b3);
 	}
-
+	
+	public Optional<Book> findBookById(Long id){
+		Optional<Book> opBook = bookList.stream()
+				.filter( b -> b.getId().equals(id))
+				.findFirst();
+		
+		return opBook;
+		}
+	
+	public Book createBook(Book newBook) {
+		Long idGerado = new Random().nextLong();
+		newBook.setId(idGerado);
+		bookList.add(newBook);
+		return newBook;
+	}
+	
+	public void updateBook(Book book) {
+		bookList.remove(book);
+		bookList.add(book);
+	}
+	
+	public void delete(Book book) {
+		bookList.remove(book);
+	}
+	
+	
 }
