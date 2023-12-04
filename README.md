@@ -1,2 +1,2 @@
 # ADS_LucasCinquetti
-Repositório S203
+Repositório de S203 - Arquitetura e Desenho de Software
